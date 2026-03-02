@@ -17,10 +17,10 @@ form! : FormGroup;
 isEditMode = false;
 aboutId!: string ;
 
+
   ngOnInit(): void {
     this.form =new FormGroup({
         name : new FormControl(''),
-      portfolioImage : new FormControl(''),
       message : new FormControl(''),
       yearsExperience : new FormControl(''),
       projectsDone : new FormControl('')
@@ -28,7 +28,13 @@ aboutId!: string ;
     this.form.disable();
   this.getAbout()
   }
+  portfolioImage!:File;
   about?:Iabout
+
+onchange(event:any){
+this.portfolioImage = event.target.files[0] as File;
+}
+
   getAbout(){
   this._aboutService.getAbout().subscribe(res=>{
         this.aboutId = res._id
@@ -45,7 +51,10 @@ enableEdit(){
 
 save(){
   if(this.form.invalid) return;
-
+const formData= new FormData();
+if(this.portfolioImage){
+  formData.append('img',this.portfolioImage);
+}
   this._aboutService.updateAbout(this.aboutId,this.form.value)
   .subscribe(updated=>{
     this.form.patchValue(updated);

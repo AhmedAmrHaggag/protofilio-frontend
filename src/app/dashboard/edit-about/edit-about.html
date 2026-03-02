@@ -3,7 +3,7 @@
 <div class="container">
   <form [formGroup]="form" class="form">
     <input type="text" formControlName="name" placeholder="Enter Your Name">
-    <input type="file" formControlName="portfolioImage" placeholder="upload your Image">
+    <input (change)="onchange($event)" type="file" accept="image/*" placeholder="upload your Image">
      <textarea type="text" formControlName="message" placeholder="Enter Your message"></textarea>
       <input type="text" formControlName="yearsExperience" placeholder="Enter Your yearsExperience">
        <input type="text" formControlName="projectsDone" placeholder="Enter Your projectsDone">
