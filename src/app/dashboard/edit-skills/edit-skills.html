@@ -1,0 +1,59 @@
+
+
+<!-- ......................................... -->
+
+<div class="container">
+
+  <h2>Skills</h2>
+
+  <button class="add-btn" (click)="addSkill()">Add New Skill</button>
+
+  <div class="skills-wrapper">
+
+    <div class="skill-box" *ngFor="let skill of skills">
+
+      <h3>{{ skill.name }}</h3>
+      <p><strong>Tools:</strong> {{ skill.tools }}</p>
+      <p><strong>Experience:</strong> {{ skill.yearsExperience }}</p>
+      <p><strong>Projects:</strong> {{ skill.projectsDone }}</p>
+      <p><strong>Languages:</strong> {{ skill.languages }}</p>
+      <p><strong>Awards:</strong> {{ skill.awards }}</p>
+
+      <div class="actions">
+        <button class="edit-btn" (click)="editSkill(skill)">Edit</button>
+        <button class="delete-btn" (click)="deleteSkill(skill._id)">Delete</button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="form-card" *ngIf="isAddMode || isEditMode">
+
+    <h3>{{ isEditMode ? 'Edit Skill' : 'Add New Skill' }}</h3>
+
+    <form [formGroup]="form">
+
+      <input type="text" formControlName="name" placeholder="Name">
+      <div class="error"
+           *ngIf="form.get('name')?.touched && form.get('name')?.invalid">
+        Name must be at least 3 characters
+      </div>
+
+      <input type="text" formControlName="imageURL" placeholder="Image URL">
+      <input type="text" formControlName="tools" placeholder="Tools">
+      <input type="text" formControlName="yearsExperience" placeholder="Years Experience">
+      <input type="text" formControlName="projectsDone" placeholder="Projects Done">
+      <input type="text" formControlName="languages" placeholder="Languages">
+      <input type="text" formControlName="awards" placeholder="Awards">
+
+      <button type="button" class="save-btn" (click)="save()">
+        Save
+      </button>
+
+    </form>
+
+  </div>
+
+</div>
+

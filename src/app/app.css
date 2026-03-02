@@ -1,0 +1,14 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.glass-panel {
+  background: rgba(47, 35, 72, 0.4);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(108, 43, 238, 0.2);
+}
+
+.glow-input:focus {
+  box-shadow: 0 0 15px rgba(108, 43, 238, 0.3);
+  border-color: #6c2bee;
+}

@@ -1,0 +1,50 @@
+
+
+
+<div class="container">
+
+  <h2>projects</h2>
+
+  <button class="add-btn" (click)="addProject()">Add New Project</button>
+
+  <div class="projects-wrapper">
+
+    <div class="project-box" *ngFor="let project of projects">
+
+      <h3>{{ project.name }}</h3>
+      <p><strong>title:</strong> {{ project.title }}</p>
+      <p><strong>heroDescription:</strong> {{ project.heroDescription }}</p>
+  
+      <div class="actions">
+        <button class="edit-btn" (click)="editProject(project)">Edit</button>
+        <button class="delete-btn" (click)="deleteProject(project._id)">Delete</button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="form-card" *ngIf="isAddMode || isEditMode">
+
+    <h3>{{ isEditMode ? 'Edit project' : 'Add New project' }}</h3>
+
+    <form [formGroup]="form">
+
+      <input type="text" formControlName="name" placeholder="Name">
+      <div class="error"
+           *ngIf="form.get('name')?.touched && form.get('name')?.invalid">
+        Name must be at least 3 characters
+      </div>
+
+      <input type="text" formControlName="title" placeholder="title">
+      <input type="text" formControlName="heroDescription" placeholder="heroDescription">
+
+      <button type="button" class="save-btn" (click)="save()">
+        Save
+      </button>
+
+    </form>
+
+  </div>
+
+</div>

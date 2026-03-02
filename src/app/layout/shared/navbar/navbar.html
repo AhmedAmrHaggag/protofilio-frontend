@@ -1,0 +1,48 @@
+<header class="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-primary/10">
+  <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+
+    <div class="flex items-center gap-3">
+      <div class="size-10 bg-primary rounded-lg flex items-center justify-center text-white">
+        <span class="material-symbols-outlined">code</span>
+      </div>
+      <h2 class="text-xl font-bold tracking-tight">Portfolio</h2>
+    </div>
+
+    <nav class="hidden md:flex items-center gap-8">
+
+      <a routerLink="/portfolio" fragment="home"
+         routerLinkActive="text-primary"
+         class="text-sm font-medium hover:text-primary transition-colors">
+        Home
+      </a>
+
+      <a routerLink="/portfolio" fragment="about"
+         class="text-sm font-medium hover:text-primary transition-colors">
+        About
+      </a>
+
+      <a routerLink="/portfolio" fragment="projects"
+         class="text-sm font-medium hover:text-primary transition-colors">
+        Projects
+      </a>
+
+      <a routerLink="/portfolio" fragment="skills"
+         class="text-sm font-medium hover:text-primary transition-colors">
+        Skills
+      </a>
+
+      <a routerLink="/portfolio" fragment="contact"
+         class="text-sm font-medium hover:text-primary transition-colors">
+        Contact
+      </a>
+
+    </nav>
+
+    <div class="flex items-center gap-4">
+      <button (click)="toggleDarkMode()" class="p-2 rounded-lg bg-primary/10 text-primary">
+        <span class="material-symbols-outlined">dark_mode</span>
+      </button>
+    </div>
+
+  </div>
+</header>

@@ -1,0 +1,31 @@
+<div class="container">
+  <form [formGroup]="form" class="form">
+    <input type="text" formControlName="name" placeholder="Enter Your Name">
+     <input type="text" formControlName="email" placeholder="Enter Your email">
+      <input type="text" formControlName="subject" placeholder="Enter Your subject">
+     <textarea type="text" formControlName="message" placeholder="Enter Your message"></textarea>
+      <input type="text" formControlName="phone" placeholder="Enter Your phone">
+       <input type="text" formControlName="address" placeholder="Enter Your address">
+       <div class="buttons">
+
+         <button 
+        type="button" 
+        class="edit-btn" 
+        *ngIf="!isEditMode"
+        (click)="enableEdit()">
+        Edit
+      </button>
+
+        <button 
+        type="button" 
+        class="save-btn" 
+        *ngIf="isEditMode"
+        (click)="save()">
+        Save
+      </button>
+
+
+       </div>
+
+  </form>
+</div>
